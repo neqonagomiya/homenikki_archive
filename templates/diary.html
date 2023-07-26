@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div class="bg-info rounded text-white center-block m-4 form-group px-5 py-3">
+        <form action="/" method="POST" class="">
+            <label class="form-label">今日あったことを一言で</label>
+            <input class="form-control mb-3" type="text" name="summary" placeholder="例）悪の組織を壊滅させた" required="required">
+            <label class="form-label">詳細（任意）</label>
+            <textarea class="form-control mb-2" name="detail" placeholder="例）近所の悪の組織を懲らしめた。感謝されて嬉しかった。"></textarea>
+            <input class="text-light bg-secondary form-control border-0" type="submit" value="送信">
+        </form>
+    </div>
+    {% if False %}
+    <audio autoplay src="/speech/output.mp3"></audio>
+    {% endif %}
+    <div class="m-4">
+    {% for task in tasks %}
+        <div class="card mb-3">
+            <div class="card-header h4 bg-info text-white">{{task.summary}}}</div>
+            <div class="card-body">{{task.date_created}}<br />{{task.detail}}</div>
+            <div class="card-footer">{{task.praise}}</div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
